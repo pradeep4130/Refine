@@ -35,7 +35,7 @@ refine$company <- gsub(pattern = "^van.*", replacement = "van houten", refine$co
 # Clean up company column for unilever
 
 refine$company <- gsub(pattern = "^uni.*", replacement = "unilever", refine$company, ignore.case = TRUE)
-View(refine)
+
 
 # 2: Separate product code and number
 
@@ -44,7 +44,7 @@ colnames(refine)
 refine <- refine %>% separate('Product.code...number',
                       c("product_code","product_number"), sep = "-" )
                
-View(refine)
+
 
 # 3: Add product categories
 
@@ -54,9 +54,14 @@ prod_cat <- c( p = "Smartphone",
                q = "Tablet")
   
 refine <- refine %>% mutate('product category' = prod_cat[product_code] )
-View(refine)
+
 
 # 4: Add full address for geocoding
+
+refine$full_address <- paste(refine$address,",",refine$city,",",refine$country)
+View(refine)
+
+# 5: Create dummy variables for company and product category
 
 
 
