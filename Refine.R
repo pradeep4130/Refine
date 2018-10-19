@@ -46,6 +46,30 @@ refine <- refine %>% separate('Product.code...number',
                
 View(refine)
 
+# 3: Add product categories
+
+prod_cat <- c( p = "Smartphone",
+               v = "TV",
+               x = "Laptop",
+               q = "Tablet")
+  
+refine <- refine %>% mutate('product category' = prod_cat[product_code] )
+View(refine)
+
+# 4: Add full address for geocoding
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
