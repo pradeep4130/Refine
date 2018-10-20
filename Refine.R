@@ -72,7 +72,9 @@ View(refine)
 
 # 6: Submit the project on Github
 
+write.csv(refine, file = "refine_clean.csv")
 
+read.csv(file = "refine_clean.csv", header = T)
 
 
 
